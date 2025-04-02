@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   appVersion: 'v8.1.8',
   USERDATA_KEY: 'authf649fc9a5f55',
-  isMockEnabled: true,
+  isMockEnabled: false,
   apiUrl: 'api',
   appThemeName: 'Metronic',
   appPurchaseUrl: 'https://1.envato.market/EA4JP',
@@ -159,6 +159,7 @@ export const environment = {
       thumbnail: './assets/media/demos/demo20.png',
     },
   },
+  URL_SERVICIO: 'http://localhost:3000/api'
 };
 
 /*
