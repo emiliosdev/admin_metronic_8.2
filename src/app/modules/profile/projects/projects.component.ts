@@ -6,8 +6,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
+    selector: 'app-projects',
+    templateUrl: './projects.component.html',
+    standalone: false
 })
 export class ProjectsComponent implements OnInit {
   users1: Array<IconUserModel> = [

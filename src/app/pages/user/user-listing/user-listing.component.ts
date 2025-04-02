@@ -8,9 +8,10 @@ import moment from 'moment';
 import { IRoleModel, RoleService } from 'src/app/_fake/services/role.service';
 
 @Component({
-  selector: 'app-user-listing',
-  templateUrl: './user-listing.component.html',
-  styleUrls: ['./user-listing.component.scss']
+    selector: 'app-user-listing',
+    templateUrl: './user-listing.component.html',
+    styleUrls: ['./user-listing.component.scss'],
+    standalone: false
 })
 export class UserListingComponent implements OnInit, AfterViewInit, OnDestroy {
 

@@ -7,9 +7,10 @@ import { SweetAlertOptions } from 'sweetalert2';
 import moment from 'moment';
 
 @Component({
-  selector: 'app-permission-listing',
-  templateUrl: './permission-listing.component.html',
-  styleUrls: ['./permission-listing.component.scss']
+    selector: 'app-permission-listing',
+    templateUrl: './permission-listing.component.html',
+    styleUrls: ['./permission-listing.component.scss'],
+    standalone: false
 })
 export class PermissionListingComponent implements OnInit, AfterViewInit, OnDestroy {
 

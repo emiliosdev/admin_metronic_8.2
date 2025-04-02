@@ -5,9 +5,10 @@ import { IRoleModel, RoleService } from 'src/app/_fake/services/role.service';
 import moment from 'moment';
 
 @Component({
-  selector: 'app-role-details',
-  templateUrl: './role-details.component.html',
-  styleUrls: ['./role-details.component.scss']
+    selector: 'app-role-details',
+    templateUrl: './role-details.component.html',
+    styleUrls: ['./role-details.component.scss'],
+    standalone: false
 })
 export class RoleDetailsComponent implements OnInit {
 
