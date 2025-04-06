@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { UserModel } from '../../../models/user.model';
+import { UserModel } from '@domain/models/auth/user.model';
 import { AuthModel } from '../../../models/auth.model';
 import { UsersTable } from '../../../../../_fake/users.table';
 import { environment } from '../../../../../../environments/environment';
@@ -24,7 +24,7 @@ export class AuthHTTPService {
     }
 
     return this.getAllUsers().pipe(
-      map((result: UserModel[]) => {
+      map((result: any[]) => {
         if (result.length <= 0) {
           return notFoundError;
         }
@@ -39,7 +39,7 @@ export class AuthHTTPService {
           return notFoundError;
         }
 
-        const auth = new AuthModel();
+        const auth:any = new AuthModel();
         auth.authToken = user.authToken;
         auth.refreshToken = user.refreshToken;
         auth.expiresIn = new Date(Date.now() + 100 * 24 * 60 * 60 * 1000);
@@ -48,7 +48,7 @@ export class AuthHTTPService {
     );
   }
 
-  createUser(user: UserModel): Observable<any> {
+  createUser(user: any): Observable<any> {
     user.roles = [2]; // Manager
     user.authToken = 'auth-token-' + Math.random();
     user.refreshToken = 'auth-token-' + Math.random();
@@ -70,7 +70,7 @@ export class AuthHTTPService {
   }
 
   getUserByToken(token: string): Observable<UserModel | undefined> {
-    const user = UsersTable.users.find((u: UserModel) => {
+    const user = UsersTable.users.find((u: any) => {
       return u.authToken === token;
     });
 

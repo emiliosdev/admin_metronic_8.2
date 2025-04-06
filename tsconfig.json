@@ -21,7 +21,28 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@metronic/*": [
+        "src/app/_metronic/*"
+      ],
+      "@env/*": [
+        "src/environments/*"
+      ],
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@data/*": [
+        "src/app/data/*"
+      ],
+      "@domain/*": [
+        "src/app/domain/*"
+      ],
+      "@presentation/*": [
+        "src/app/presentation/*"
+      ],
+
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

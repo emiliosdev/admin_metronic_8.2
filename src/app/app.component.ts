@@ -8,6 +8,8 @@ import { locale as jpLang } from './modules/i18n/vocabs/jp';
 import { locale as deLang } from './modules/i18n/vocabs/de';
 import { locale as frLang } from './modules/i18n/vocabs/fr';
 import { ThemeModeService } from './_metronic/partials/layout/theme-mode-switcher/theme-mode.service';
+import {RouterOutlet} from "@angular/router";
+import {NgStyle} from "@angular/common";
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -16,9 +18,9 @@ import { ThemeModeService } from './_metronic/partials/layout/theme-mode-switche
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+   imports: [RouterOutlet, NgStyle]
 })
-export class AppComponent implements OnInit {
+export class AppComponent   {
   constructor(
     private translationService: TranslationService,
     private modeService: ThemeModeService
