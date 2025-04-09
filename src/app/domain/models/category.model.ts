@@ -25,6 +25,7 @@ export interface CategoryConfigResponse {
 export interface CategorySelectHtml extends Pick<Category, "id" | "name">{}
 
 export interface CategoryData  {
+  id: number
   name: string;
   icon: string;
   position:number;
@@ -32,4 +33,5 @@ export interface CategoryData  {
   categorieThirdId:number;
   fileImage:any;
   typeCategorie: number
+  enabled: boolean
 }

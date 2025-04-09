@@ -4,6 +4,7 @@ import {CreateCategoryUseCase} from "@domain/use-cases/category/create-category.
 import {FormsModule} from "@angular/forms";
 import {GetConfigCategoryUseCase} from "@domain/use-cases/category/get-config-category.use-case";
 import {CategoryData, CategorySelectHtml} from "@domain/models/category.model";
+import {imgDefault} from "@domain/utils/constants";
 
 @Component({
   selector: 'app-create-categorie',
@@ -23,7 +24,7 @@ export class CreateCategorieComponent {
     icon: "",
     position: 1,
   } as CategoryData;
-  imagenPreview:any = "";
+  imagenPreview:any = imgDefault();
 
   categoriesFirst = signal<CategorySelectHtml[]>([])
   categoriesSecond = signal<CategorySelectHtml[]>([])

@@ -4,6 +4,8 @@ import {CategoryConfigResponse, CategoryData, CategoryResponse} from "@domain/mo
 
 export abstract class CategoryRepository {
   abstract create(params:CategoryData):Observable<ApiResponse>;
+  abstract update(params:CategoryData):Observable<ApiResponse>;
   abstract getConfig():Observable<CategoryConfigResponse>;
   abstract list(params:any):Observable<CategoryResponse>;
+  abstract getId(id: number):Observable<CategoryData>;
 }

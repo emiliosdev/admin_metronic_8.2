@@ -97,7 +97,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           })
           this.$setAuthFromLocalStorageUseCase.execute(response.payload)
           console.log(this.returnUrl)
-          // this.router.navigate([this.returnUrl]);
+         this.router.navigate([this.returnUrl]).then()
           setTimeout(()=>{
          //   document.location.reload()
           }, 400)

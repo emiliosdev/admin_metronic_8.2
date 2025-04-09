@@ -63,7 +63,7 @@
           <label for="customFile" class="custom-file-label">Choose file</label>
         </div>
         <div class="">
-          <img class="img py-4" [src]="imagenPreview">
+          <img class="img py-4" [src]="imagenPreview" width="100" height="100">
         </div>
       </div>
 
@@ -96,7 +96,7 @@
         @if (typeCategorie()===3 ){
           <div class="col-lg-6 col-md-6 col-sm-12 my-2">
             <label class="form-label required  fs-6 py-2">Departamento: (Primer Nivel *)</label>
-            <select class="form-control form-select-solid fw-bolder"
+            <select class="form-control form-select form-select-solid fw-bolder"
                     [(ngModel)]="dataForm.categorieThirdId"
                     name="departament"
             >
@@ -113,7 +113,7 @@
         @if (typeCategorie()===3){
         <div class="col-lg-6 col-md-6 col-sm-12 my-2">
           <label class="form-label required  fs-6 py-2">Categoría: (Segundo Nivel *)</label>
-          <select class="form-control form-select-solid fw-bolder"
+          <select class="form-control form-select form-select-solid fw-bolder"
                   [(ngModel)]="dataForm.categorieSecondId"
                   name="categorie"
 

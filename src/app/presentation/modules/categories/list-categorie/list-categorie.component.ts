@@ -5,12 +5,12 @@ import { ListCategoryUseCase } from '@domain/use-cases/category/list-category.us
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import {imgDefault} from "@domain/utils/constants";
 
 @Component({
   selector: 'app-list-categorie',
   imports: [RouterLink, NgbPagination, FormsModule],
   templateUrl: './list-categorie.component.html',
-  styleUrl: './list-categorie.component.scss',
 })
 export class ListCategorieComponent implements OnInit {
   private $listUseCase = inject(ListCategoryUseCase);
@@ -50,5 +50,8 @@ export class ListCategorieComponent implements OnInit {
     this.getList();
   }
 
-  tets() {}
+  setDefaultImg(event: Event) {
+    (event.target as HTMLImageElement).src = imgDefault();
+  }
+
 }

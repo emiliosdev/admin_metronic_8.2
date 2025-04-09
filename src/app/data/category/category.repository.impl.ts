@@ -1,19 +1,31 @@
 import {inject, Injectable} from "@angular/core";
 import {Config} from "@core/config/config";
-import {HttpClient} from "@angular/common/http";
 import {CategoryRepository} from "@domain/repositories/category.repository";
 import { ApiResponse } from "@core/api-response";
 import { Observable } from "rxjs";
-import {CreateCategoryMapper} from "@data/category/create-category.mapper";
-import { CategoryConfigResponse, CategoryResponse} from "@domain/models/category.model";
+import { CategoryData, CategoryConfigResponse, CategoryResponse } from "@domain/models/category.model";
+import {ListCategoryMapper} from "@data/category/list-category.mapper";
 import {map} from "rxjs/operators";
 import {GetConfigCategoryMapper} from "@data/category/get-config-category.mapper";
-import {ListCategoryMapper} from "@data/category/list-category.mapper";
+import {CreateCategoryMapper} from "@data/category/create-category.mapper";
+import {HttpClient} from "@angular/common/http";
+import {GetIdCategoryMapper} from "@data/category/get-id-category.mapper";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryRepositoryImpl implements CategoryRepository {
+  update(params: CategoryData): Observable<ApiResponse> {
+    let data = CreateCategoryMapper.toJson(params);
+    return this.http.patch<ApiResponse>(`${this.url}/${params.id}`, data)
+  }
+  getId(id: number): Observable<any> {
+    return this.http.get<ApiResponse>(`${this.url}/${id}` ).pipe(
+      map(response=>GetIdCategoryMapper.fromJson(response))
+    )
+  }
+
+
   list(params: any): Observable<CategoryResponse> {
     const json = ListCategoryMapper.toJson(params);
     return this.http.get<ApiResponse>(`${this.url}`, {
