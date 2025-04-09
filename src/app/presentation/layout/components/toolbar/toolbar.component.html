@@ -1,0 +1,58 @@
+<!--begin::Toolbar container-->
+<div
+  id="kt_app_toolbar_container"
+  class="app-container"
+  [ngClass]="appToolbarContainerCSSClass"
+>
+  @if (showPageTitle()) {
+  <ng-container>
+    <app-page-title
+      [appPageTitleDirection]="appPageTitleDirection"
+      [appPageTitleBreadcrumb]="appPageTitleBreadcrumb"
+      [appPageTitleDescription]="appPageTitleDescription"
+      class="page-title d-flex flex-wrap me-3"
+      [ngClass]="{
+        'flex-column justify-content-center':
+          appPageTitleDirection === 'column',
+        'align-items-center': appPageTitleDirection !== 'column',
+        appPageTitleCSSClass
+      }"
+    >
+    </app-page-title>
+  </ng-container>
+
+  } @if (appToolbarLayout === 'classic') {
+  <ng-container>
+    <app-classic class="d-flex align-items-center gap-2 gap-lg-3"></app-classic>
+  </ng-container>
+  } @if (appToolbarLayout === 'accounting') {
+  <ng-container>
+    <app-accounting class="d-flex align-items-center me-5"></app-accounting>
+  </ng-container>
+  } @if (appToolbarLayout === 'reports') {
+  <ng-container>
+    <app-reports
+      class="d-flex align-items-center overflow-auto"
+      [appPageTitleDisplay]="appPageTitleDisplay"
+    >
+    </app-reports>
+  </ng-container>
+  } @if (appToolbarLayout === 'extended') {
+
+  <ng-container>
+    <app-extended
+      class="d-flex align-items-center flex-shrink-0 me-5"
+    ></app-extended>
+  </ng-container>
+
+  } @if (appToolbarLayout === 'saas') {
+
+  <ng-container>
+    <app-saas
+      class="d-flex align-items-center gap-2"
+      [appPageTitleDisplay]="appPageTitleDisplay"
+    ></app-saas>
+  </ng-container>
+  }
+</div>
+<!--end::Toolbar container-->

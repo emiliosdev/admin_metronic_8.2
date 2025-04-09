@@ -1,0 +1,35 @@
+@if(modalConfigRef().showHeader){
+<div class="modal-header">
+  <h4 class="modal-title"  >{{ modalConfigRef().title }}</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="close.emit()"
+  ></button>
+</div>
+}
+<div class="modal-body">
+<!--  @if (isLoading()) {-->
+
+<!--  <app-spinner [isFullScreen]="false"/>-->
+<!--  }-->
+
+
+  <ng-container *ngTemplateOutlet="fragmentBody"></ng-container>
+</div>
+@if (modalConfigRef().showFooter){
+<div class="modal-footer" [ngClass]="[modalConfig().alignBtnFooter || '']">
+
+  <ng-container *ngTemplateOutlet="fragmentBtnFooter"></ng-container>
+
+  @if(modalConfigRef().showBtnCancel){
+
+  <button type="reset"   class="btn btn-dark  " [ngClass]="[modalConfig().btnSize || '']"  (click)="close.emit()">
+    &times; Cerrar
+  </button>
+  }
+</div>
+
+}
+
